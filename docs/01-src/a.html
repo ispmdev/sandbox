@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Lazy Load Test</title>
+    <style>
+        body {
+            height: 2000px; /* Simulating a long page */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .image-container {
+            margin-top: 1800px; /* Place the image far below the fold */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <h1>Lazy Load Test Image</h1>
+        <img id="lazy-image" data-src="https://via.placeholder.com/300" alt="Lazy Load Test" width="300" height="200">
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(() => {
+                const img = document.getElementById('lazy-image');
+                img.src = img.dataset.src;
+            }, 5000); // Swap the src after 5 seconds
+        });
+    </script>
+</body>
+</html>
